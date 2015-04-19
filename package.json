@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "~4.9.x",
-    "twitter-js-client": "~0.0.1"
+    "twitter-js-client": "git://github.com/BoyCook/TwitterJSClient.git"
   },
   "engines": {
     "node": "0.12.2"
