@@ -13,8 +13,8 @@ var success = function(data) {
 var config = {
   "consumerKey": "EygchgUWpfTaJtKm1fqoEyLRu",
   "consumerSecret": "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
-  "accessToken": "",
-  "accessTokenSecret": "",
+  "accessToken": "2923537422-lbQWbLqlUvbqCBfpKwHvxW5V17MtbhZhTQfWsA5",
+  "accessTokenSecret": "RiccwXHxdhvkRJCEsNSftWIoCytv1fhFMOQV5ctPSLzc0",
   "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
 }
 
