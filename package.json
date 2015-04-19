@@ -1,0 +1,21 @@
+{
+  "name": "TwitterAppSample1",
+  "version": "0.0.1",
+  "description": "This is a Twitter app sample no.1.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "twitter-js-client": "~0.0.1"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}
