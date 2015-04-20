@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width'>
+  <title>Express4 + ECT sample apps.</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    io = io.connect();
+    io.emit('ready');
+    io.on('talk', function(data) {
+      alert(data.message);
+    });
+  </script>
+</head>
+<body>
+  <% content %>
+</body>
+</html>
+
