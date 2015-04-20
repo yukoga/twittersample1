@@ -9,10 +9,5 @@ models.forEach(function (model) {
   require(model);
 });
 */
-
-
-// require('./config/express.io')(app, config);
 require(config.root + '/config/express.io')(app, config);
-
-// app.listen(config.port);
 app.listen(process.env.PORT || config.port);
