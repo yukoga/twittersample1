@@ -7,7 +7,6 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "~4.9.x",
     "twitter-js-client": "git://github.com/BoyCook/TwitterJSClient.git",
     "ect": "^0.5.9",
     "express.io": "^1.1.13",
