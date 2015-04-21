@@ -9,6 +9,7 @@
 #for node
 compiled
 node_modules/
+.publish/
 *.swp
 *.swo
 *.swn

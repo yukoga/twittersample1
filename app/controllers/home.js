@@ -39,11 +39,12 @@ var callbackforready = function() {
 
 var getHome = function() {
   var apikey = {
-    "consumerKey": "EygchgUWpfTaJtKm1fqoEyLRu",
-    "consumerSecret": "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
-    // "accessToken": "2923537422-lbQWbLqlUvbqCBfpKwHvxW5V17MtbhZhTQfWsA5",
-    // "accessTokenSecret": "RiccwXHxdhvkRJCEsNSftWIoCytv1fhFMOQV5ctPSLzc0",
-    "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
+    // "consumerKey": "EygchgUWpfTaJtKm1fqoEyLRu",
+    // "consumerSecret": "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
+    // "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
+    "consumerKey": "jTJ3lfXy8mjIVxapeaikdcL6K",
+    "consumerSecret": "hOpJ66F9OS3H0MDxuAnqn5X477Gfx6A23O4LFDSSmbGe1aX5Jd",
+    "callBackUrl": "http://127.0.0.1:3000"
   };
   var twitter = new Twitter(apikey);
   twitter.getOAuthAccessToken(twitter.oauth, function(){
