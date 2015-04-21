@@ -15,12 +15,12 @@ var ready = function(req, res, next) {
   req.io.emit('talk', {
     message: 'io event from an io route on the server. / ready のcallback 関数として外出ししたところからemit.'
   });
-  req.io.emit('talk', {
-    message: 'twitter oauth_token is : ' + tw_oauth_obj.token
-  });
-  req.io.emit('talk', {
-    message: 'twitter oauth_token_secret is : ' + tw_oauth_obj.token_secret
-  });
+  // req.io.emit('talk', {
+    // message: 'twitter oauth_token is : ' + tw_oauth_obj.token
+  // });
+  // req.io.emit('talk', {
+    // message: 'twitter oauth_token_secret is : ' + tw_oauth_obj.token_secret
+  // });
 };
 
 var localLog = function(req, res, next) {
