@@ -2,9 +2,13 @@ var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   nodedebug = require('gulp-node-debug'),
   ghpages = require('gulp-gh-pages'),
+  minimist = require('minimist'),
   livereload = require('gulp-livereload')
   ;
 
+var args = minimist(process.argv.slice(2)),
+    message = args.msg
+  ;
 gulp.task('watch', function() {
   gulp.watch('./public/css/*.scss', ['sass']);
 });
@@ -32,8 +36,16 @@ gulp.task('develop', function () {
 
 gulp.task('deploy', function() {
   return gulp.src('./**/*')
-    .pipe(ghpages({remoteUrl: 'git@github.com:yukoga/twittersample1.git', branch: 'master'}))
-    .pipe(ghpages({remoteUrl: 'https://git.heroku.com/desolate-stream-8656.git', branch: 'master'}));
+    .pipe(ghpages({
+      remoteUrl: 'git@github.com:yukoga/twittersample1.git',
+      branch: 'master',
+      message: message
+    }))
+    .pipe(ghpages({
+      remoteUrl: 'https://git.heroku.com/desolate-stream-8656.git',
+      branch: 'master',
+      message: message
+    }));
 });
 
 gulp.task('default', [
