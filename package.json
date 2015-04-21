@@ -13,6 +13,14 @@
     "glob": "^4.3.5",
     "path": "^0.11.14"
   },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-gh-pages": "^0.5.1",
+    "gulp-livereload": "^3.8.0",
+    "gulp-node-debug": "0.0.2",
+    "gulp-nodemon": "^2.0.2",
+    "minimist": "^1.1.1"
+  },
   "engines": {
     "node": "0.10.x"
   },

@@ -8,7 +8,7 @@
 .log
 #for node
 compiled
-node_modules
+node_modules/
 *.swp
 *.swo
 *.swn
