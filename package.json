@@ -19,7 +19,7 @@
     "gulp-livereload": "^3.8.0",
     "gulp-node-debug": "0.0.2",
     "gulp-nodemon": "^2.0.2",
-    "gulp-ph-pages": "0.5.1"
+    "minimist": "^1.1.1"
   },
   "engines": {
     "node": "0.10.x"
