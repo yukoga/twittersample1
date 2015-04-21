@@ -2,6 +2,7 @@ var app = require('express.io')(),
     Twitter = require('twitter-js-client').Twitter
 ;
 
+var tw_oauth_obj = {};
 module.exports = function(app, config) {
   var articles = [];
   // app.use('/', localLog);
@@ -13,6 +14,12 @@ var ready = function(req, res, next) {
   var req = arguments[0];
   req.io.emit('talk', {
     message: 'io event from an io route on the server. / ready のcallback 関数として外出ししたところからemit.'
+  });
+  req.io.emit('talk', {
+    message: 'twitter oauth_token is : ' + tw_oauth_obj.token
+  });
+  req.io.emit('talk', {
+    message: 'twitter oauth_token_secret is : ' + tw_oauth_obj.token_secret
   });
 };
 
@@ -39,7 +46,9 @@ var getHome = function() {
     "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
   };
   var twitter = new Twitter(apikey);
-  twitter.getOAuthAccessToken(twitter.oauth, function(){});
+  twitter.getOAuthAccessToken(twitter.oauth, function(){
+    tw_oauth_obj = arguments[0];
+  });
   var req = arguments[0], res = arguments[1];
   res.render('index', {
     title: 'express.io+ect with socket.io apps.'
