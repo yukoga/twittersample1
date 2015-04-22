@@ -5,8 +5,17 @@ var app = require('express.io')(),
 var tw_oauth_obj = {};
 module.exports = function(app, config) {
   var articles = [];
-  // app.use('/', localLog);
   app.get('/', getHome);
+
+  var apikey = config.twttr;
+  var twitter = new Twitter(apikey);
+  twitter.getOAuthRequestToken(function(oauth){
+    tw_oauth_obj = oauth;
+  });
+  app.get('/redirect', function(req, res) {
+    var url = twitter.getAuthenticateUrl(tw_oauth_obj);
+    res.redirect(302, url);
+  });
   app.io.route('ready', ready);
 };
 
@@ -15,43 +24,21 @@ var ready = function(req, res, next) {
   req.io.emit('talk', {
     message: 'io event from an io route on the server. / ready のcallback 関数として外出ししたところからemit.'
   });
-  // req.io.emit('talk', {
-    // message: 'twitter oauth_token is : ' + tw_oauth_obj.token
-  // });
-  // req.io.emit('talk', {
-    // message: 'twitter oauth_token_secret is : ' + tw_oauth_obj.token_secret
-  // });
-};
-
-var localLog = function(req, res, next) {
-  console.log('called by app.use(). ');
-  getHome(req, res, next);
-  ready(req, res, next);
-  // next();
-}
-
-var callbackforready = function() {
-  var req = arguments[0];
-  req.io.emit('talk', {
-    message: 'io event from callbackforready.'
-  });
 };
 
 var getHome = function() {
-  var apikey = {
-    // "consumerKey": "EygchgUWpfTaJtKm1fqoEyLRu",
-    // "consumerSecret": "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
-    // "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
-    "consumerKey": "jTJ3lfXy8mjIVxapeaikdcL6K",
-    "consumerSecret": "hOpJ66F9OS3H0MDxuAnqn5X477Gfx6A23O4LFDSSmbGe1aX5Jd",
-    "callBackUrl": "http://127.0.0.1:3000"
-  };
-  var twitter = new Twitter(apikey);
-  twitter.getOAuthAccessToken(twitter.oauth, function(){
-    tw_oauth_obj = arguments[0];
-  });
-  var req = arguments[0], res = arguments[1];
+  var req = arguments[0], res = arguments[1], auth_message;
+  if (req.query.oauth_token && req.query.oauth_verifier) {
+    auth_message = "Succeeded to Twitter authentication.";
+  } else if (req.query.denied) {
+    auth_message = "You've failed or rejected to connect this apps and Twitter.";
+  } else {
+    auth_message = "You've got a something wrong.";
+  }
   res.render('index', {
-    title: 'express.io+ect with socket.io apps.'
+    title: 'express.io+ect with socket.io apps.',
+    auth_message: auth_message,
+    oauth_token: req.query.oauth_token,
+    oauth_verifier: req.query.oauth_verifier
   });
 };

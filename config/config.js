@@ -2,17 +2,13 @@ var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'development';
 
-var twitterKey = {
-  "consumerKey": "EygchgUWpfTaJtKm1fqoEyLRu",
-  "consumerSecret": "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
-  // "accessToken": "2923537422-lbQWbLqlUvbqCBfpKwHvxW5V17MtbhZhTQfWsA5",
-  // "accessTokenSecret": "RiccwXHxdhvkRJCEsNSftWIoCytv1fhFMOQV5ctPSLzc0",
-  "callBackUrl": "https://desolate-stream-8656.herokuapp.com/"
-}
-
 var config = {
   development: {
-    twitter: twitterKey,
+    twttr: {
+      consumerKey: "BiSDarSJOisgVyR1ujn6fPxNU",
+      consumerSecret: "u6VFsBb7kE1qqMcLaEwfXyObYraQRZABUvaS4EL8TEWKCym2DB",
+      callBackUrl: "http://127.0.0.1:3000"
+    },
     root: rootPath,
     app: {
       name: 'TwitterSample1'
@@ -22,7 +18,11 @@ var config = {
   },
 
   test: {
-    twitter: twitterKey,
+    twttr: {
+      consumerKey: "BiSDarSJOisgVyR1ujn6fPxNU",
+      consumerSecret: "u6VFsBb7kE1qqMcLaEwfXyObYraQRZABUvaS4EL8TEWKCym2DB",
+      callBackUrl: "http://127.0.0.1:3000"
+    },
     root: rootPath,
     app: {
       name: 'TwitterSample1'
@@ -32,7 +32,11 @@ var config = {
   },
 
   production: {
-    twitter: twitterKey,
+    twttr: {
+      consumerKey: "EygchgUWpfTaJtKm1fqoEyLRu",
+      consumerSecret: "QgC9rsjvpWFogEDCWP3s20qpQpL6SL70fVA7OXUtnPHfNk8673",
+      callBackUrl: "https://desolate-stream-8656.herokuapp.com/"
+    },
     root: rootPath,
     app: {
       name: 'TwitterSample1'

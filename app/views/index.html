@@ -2,3 +2,10 @@
 
   <h1><%= @title %></h1>
   <p>Welcome to "<%= @title %>" by ECT.</p>
+  <div id="oauth-token">
+    <p>auth_message : <%= @auth_message %></p>
+    <% if @oauth_token? && @oauth_verifier? : %>
+      <p>oauth_token : <%= @oauth_token %></p>
+      <p>oauth_verifier : <%= @oauth_verifier %></p>
+    <% end %>
+  </div>
