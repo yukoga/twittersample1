@@ -2,6 +2,12 @@ var html = require('ect'),
     glob = require('glob')
     ;
 
+/*
+var models = glob.sync(config.root + '/app/models/*.js');
+models.forEach(function (model) {
+  require(model);
+});
+*/
 module.exports = function(app, config) {
   var ectRenderer = html({
     watch: true,
