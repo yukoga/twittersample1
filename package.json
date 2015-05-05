@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "twitter-js-client": "git://github.com/yukoga/TwitterJSClient.git",
+    "node-modelmap": "git://github.com/yukoga/node-modelmap.git",
+    "hashmap": "^2.0.3",
     "ect": "^0.5.9",
     "express.io": "^1.1.13",
     "glob": "^4.3.5",

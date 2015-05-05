@@ -1,14 +1,15 @@
 var html = require('ect'),
+    hashmap = require('hashmap'),
+    modelmap = require('node-modelmap'),
     glob = require('glob')
     ;
 
-/*
-var models = glob.sync(config.root + '/app/models/*.js');
-models.forEach(function (model) {
-  require(model);
-});
-*/
 module.exports = function(app, config) {
+  var models = modelmap.load(glob.sync(config.root + '/app/models/*.js'));
+  app.models = models;
+
+  app.http().io();
+
   var ectRenderer = html({
     watch: true,
     root: config.root + '/app/views',
@@ -17,8 +18,6 @@ module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'html');
   app.engine('html', ectRenderer.render);
-
-  app.http().io();
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
