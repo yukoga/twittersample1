@@ -5,7 +5,7 @@
 .sass-cache/
 #WP用
 .htaccess
-.log
+*.log
 #for node
 compiled
 node_modules/
